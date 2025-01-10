@@ -25,4 +25,17 @@ Input: nums = [5,5], target = 10
 
 Output: [0,1]
 '''
+from typing import List
 
+def twoSum(nums:List[int],sum:int):
+    comps = {}
+    for index,num in enumerate(nums):
+        if num in comps:
+            return [comps[num],index]
+        else:
+            comps[sum - num] = index
+
+
+print(twoSum([3,4,5,6],7)) #[0,1]
+print(twoSum([4,5,6],10)) #[0,2]
+print(twoSum([5,5],10)) #[0,1]
